@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
 import { withLocalize, Translate } from 'react-localize-redux';
 import ContactTranslations from '../../res/translations/contact.json'
+import { setPaginaAtiva } from '../../res/funcs/setPaginaAtiva.js';
 
 class Contact extends Component {
     constructor(props) {
@@ -10,6 +11,10 @@ class Contact extends Component {
         this.state = {
             contactForm: {}
         }
+    }
+
+    componentDidMount = () => {
+        setPaginaAtiva()
     }
 
     handleChange = name => event => {
@@ -24,7 +29,7 @@ class Contact extends Component {
         const { contactForm } = this.state
         return (
             <Translate>
-                {({translate} ) => {
+                {({ translate }) => {
                     return (
                         <div id='contactForm'>
                             <TextField

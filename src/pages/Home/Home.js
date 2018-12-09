@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import { withLocalize, Translate } from 'react-localize-redux';
 import HomeTranslations from '../../res/translations/home.json'
+
+import './Home.css'
+import { setPaginaAtiva } from '../../res/funcs/setPaginaAtiva.js';
+
 class Home extends Component {
     constructor(props) {
         super(props)
         props.addTranslation(HomeTranslations)
     }
-
+    
+    componentDidMount = () => {
+        setPaginaAtiva()
+    }
 
     render() {
         return (

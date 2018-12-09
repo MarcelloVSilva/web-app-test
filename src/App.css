@@ -4,6 +4,7 @@
     width: 100%;
     background-color: #3a6475;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    overflow: hidden;
 }
 
 .App-logo {
@@ -38,8 +39,17 @@
     }
 }
 
+.paginaAtiva { 
+  border-bottom: 1px solid;
+}
+
 a {
     all: unset
+}
+
+a:hover {
+    cursor: pointer;
+    color: #61dafb;;
 }
 
 #logo {
@@ -86,6 +96,7 @@ a {
     position: absolute;
     align-self: flex-start;
     margin-top: 5vmin;
+    z-index: 1;
 }
 
 #languagePick div {
