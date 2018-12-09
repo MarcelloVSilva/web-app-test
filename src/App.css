@@ -1,97 +1,128 @@
 .App {
-  text-align: center;
+    text-align: center;
+    height: -webkit-fill-available;
+    width: 100%;
+    background-color: #3a6475;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+    animation: App-logo-spin infinite 20s linear;
+    height: 10vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 10vh;
+    color: rgba(255, 255, 255, 0.69);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    padding: 0 5vmin;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    /* color: white; */
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
+
 a {
-  all: unset
+    all: unset
 }
+
+#logo {
+    width: 3em;
+    height: 3em;
+}
+
+#changeLanguage {
+    justify-content: center;
+    display: flex;
+    width: 100px;
+    height: 40px;
+}
+
+#navigation {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#navigation a {
+    margin-left: 3vmin
+}
+
 #globo {
-  order: 0;
-  font-size: 1.7em;
-  position: absolute !important;
-  align-self: flex-start;
-  opacity: 1;
-  margin: 0;
-  transition: all 2s;
+    order: 0;
+    font-size: 25px;
+    position: absolute !important;
+    align-self: flex-start;
+    opacity: 1;
+    margin-top: 7px;
+    transition: all 2s;
 }
 
 #languagePick {
-  order: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  height: 190px;
-  transition-duration: 0.5s;
-  position: absolute;
-  align-self: flex-start;
-  margin-top: 5vmin;
+    order: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    height: 190px;
+    transition-duration: 0.5s;
+    position: absolute;
+    align-self: flex-start;
+    margin-top: 5vmin;
 }
 
 #languagePick div {
-  transition: 0.5s;
-  margin: 10px;
+    transition: 0.5s;
+    margin: 10px;
 }
 
-#languagePick > div:hover {
-  cursor: pointer;
-  color: slategray;
+#languagePick>div:hover {
+    cursor: pointer;
+    color: slategray;
 }
 
-.fa-globe-americas:hover + #languagePick {
-  opacity: 1;
+.fa-globe-americas:hover+#languagePick {
+    opacity: 1;
 }
 
 #languagePick:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .bandeiras {
-  transition: all 0.2s;
-  margin: 0 2vmin 0 2vmin;
+    transition: all 0.2s;
+    margin: 0 2vmin 0 2vmin;
 }
 
-.bandeiraEspanha, .bandeiraUSA, .bandeiraItalia {
-  width: 58px;
+.bandeiraUSA {
+    width: 58px;
 }
 
-.bandeiraEspanha:hover, .bandeiraUSA:hover, .bandeiraItalia:hover {
-  width: 64px;
+.bandeiraUSA:hover {
+    width: 64px;
 }
 
-.bandeiraBrasil{
-  width: 54px;
-} 
+.bandeiraBrasil {
+    width: 54px;
+}
 
 .bandeiraBrasil:hover {
-  width: 58px;
+    width: 58px;
 }
-
