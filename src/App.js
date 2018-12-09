@@ -39,6 +39,9 @@ class App extends Component {
                 </div>
                 <div id='logo'>LOGO</div>
                 <div id='navigation'>
+                  <Link to='/'>
+                    <div>{translate.translate('home')}</div>
+                  </Link>
                   <Link to='/contact'>
                     <div>{translate.translate('contact')}</div>
                   </Link>
