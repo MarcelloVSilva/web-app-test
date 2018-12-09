@@ -21,10 +21,30 @@ class Contact extends Component {
                     campo: 'email',
                     temErro: false
                 }]
-                
+
         }
         this.salvar = this.salvar.bind(this)
+        this.setInitialStateForm = this.setInitialStateForm.bind(this)
+        this.setInitialStateCamposObrigatorios = this.setInitialStateCamposObrigatorios.bind(this)
         this.validaCampos = this.validaCampos.bind(this)
+    }
+
+    setInitialStateForm() {
+        const contactForm = {}
+        this.setState({ contactForm })
+    }
+
+    setInitialStateCamposObrigatorios() {
+        const camposObrigatorios = [
+            {
+                campo: 'nome',
+                temErro: false
+            },
+            {
+                campo: 'email',
+                temErro: false
+            }]
+        this.setState({ camposObrigatorios })
     }
 
     componentDidMount = () => {
@@ -40,26 +60,19 @@ class Contact extends Component {
     }
 
     async salvar() {
-        try {
-            await this.validaCampos()
-            const camposObrigatorios = [
-                {
-                    campo: 'nome',
-                    temErro: false
-                },
-                {
-                    campo: 'email',
-                    temErro: false
-                }]
-            this.setState({ camposObrigatorios })
-            const card = document.getElementsByClassName('card')[0]
-            card.classList.toggle('rotated');
-        } catch {
-        }
+        await this.validaCampos()
+        this.setInitialStateForm()
+        this.setInitialStateCamposObrigatorios()
+        this.rotate();
+    }
+
+    rotate() {
+        const card = document.getElementsByClassName('card')[0];
+        card.classList.toggle('rotated');
     }
 
     validaCampos() {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             const { camposObrigatorios, contactForm } = this.state
             let contErros = 2
             let errosCampos = []
@@ -69,15 +82,27 @@ class Contact extends Component {
             }
             camposObrigatorios.some((campoObrigatorio) => {
                 const valorDoCampo = contactForm[campoObrigatorio.campo]
-                if (campoObrigatorio.campo === 'nome' && (!valorDoCampo || !(/[A-Za-z]/).test(valorDoCampo) || valorDoCampo === '')) {
-                    campoObrigatorio.temErro = true
-                    errosCampos.push(erro)
-                } else if (campoObrigatorio.campo === 'email' && (!valorDoCampo || (/[@]^/).test(valorDoCampo) || valorDoCampo === '')) {
-                    campoObrigatorio.temErro = true
-                    errosCampos.push(erro)
+                if (campoObrigatorio.campo === 'nome') {
+                    if (!valorDoCampo || !(/[A-Za-z]/).test(valorDoCampo) || valorDoCampo === '') {
+                        campoObrigatorio.temErro = true
+                        errosCampos.push(erro)
+                    } else {
+                        contErros--
+                        campoObrigatorio.temErro = false
+                        errosCampos.push(erro)
+                    }
+                } else if (campoObrigatorio.campo === 'email') {
+                    if (!valorDoCampo || (/[@]^/).test(valorDoCampo) || valorDoCampo === '') {
+                        campoObrigatorio.temErro = true
+                        errosCampos.push(erro)
+                    } else {
+                        contErros--
+                        campoObrigatorio.temErro = false
+                        errosCampos.push(erro)
+                    }
                 } else contErros--
             })
-            contErros === 0 ? resolve() : this.setState({ camposObrigatorios })
+            contErros === 0 ? resolve() : reject(this.setState({ camposObrigatorios }))
         })
     }
 
@@ -91,6 +116,7 @@ class Contact extends Component {
                             <div className="card">
                                 <div className="card-contents card-front" >
                                     <div className="card-depth">
+                                    <h2>{translate('tituloContato')}</h2>
                                         <div id='contactForm'>
                                             <TextField
                                                 error={camposObrigatorios[0].temErro && true}
@@ -119,9 +145,10 @@ class Contact extends Component {
                                     </div>
                                 </div>
 
-                                <div className="card-contents card-back">
+                                <div onClick={this.rotate} className="card-contents card-back">
                                     <div className="card-depth">
-                                        Sucesso
+                                        {translate('confirmacao')}
+                                        <i class="far fa-check-circle"></i>
                                     </div>
                                 </div>
                             </div>

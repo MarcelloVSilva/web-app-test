@@ -120,24 +120,3 @@ a:hover {
 #languagePick:hover {
     opacity: 1;
 }
-
-.bandeiras {
-    transition: all 0.2s;
-    margin: 0 2vmin 0 2vmin;
-}
-
-.bandeiraUSA {
-    width: 58px;
-}
-
-.bandeiraUSA:hover {
-    width: 64px;
-}
-
-.bandeiraBrasil {
-    width: 54px;
-}
-
-.bandeiraBrasil:hover {
-    width: 58px;
-}

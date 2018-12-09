@@ -5,8 +5,6 @@ import './App.css';
 import Routes from './Routes';
 import { Translate, withLocalize } from 'react-localize-redux';
 import GlobalTranslations from './res/translations/global.json'
-import bdbr from './res/bandeiras/bd-br.png'
-import bdusa from './res/bandeiras/bd-usa.png'
 import LogoReact from './res/logo/logoReact.svg'
 
 class App extends Component {
@@ -43,10 +41,10 @@ class App extends Component {
                   <i id='globo' className="fas fa-globe-americas"></i>
                   <div id='languagePick'>
                     <div onClick={() => translate.setActiveLanguage('pt')}>
-                      <img alt='flag' className="bandeiras bandeiraBrasil" src={bdbr} />
+                      pt
                     </div>
                     <div onClick={() => translate.setActiveLanguage('en')}>
-                      <img alt='flag' className="bandeiras bandeiraUSA" src={bdusa} />
+                      en
                     </div>
                   </div>
                 </div>
