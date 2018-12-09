@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
 import { withLocalize, Translate } from 'react-localize-redux';
 import ContactTranslations from '../../res/translations/contact.json'
-import { setPaginaAtiva } from '../../res/funcs/setPaginaAtiva.js';
+import { setAbaAtiva } from '../../res/funcs/setAbaAtiva.js';
 
 class Contact extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Contact extends Component {
     }
 
     componentDidMount = () => {
-        setPaginaAtiva()
+        setAbaAtiva()
     }
 
     handleChange = name => event => {

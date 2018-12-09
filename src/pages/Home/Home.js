@@ -3,16 +3,16 @@ import { withLocalize, Translate } from 'react-localize-redux';
 import HomeTranslations from '../../res/translations/home.json'
 
 import './Home.css'
-import { setPaginaAtiva } from '../../res/funcs/setPaginaAtiva.js';
+import { setAbaAtiva } from '../../res/funcs/setAbaAtiva.js';
 
 class Home extends Component {
     constructor(props) {
         super(props)
         props.addTranslation(HomeTranslations)
     }
-    
+
     componentDidMount = () => {
-        setPaginaAtiva()
+        setAbaAtiva()
     }
 
     render() {

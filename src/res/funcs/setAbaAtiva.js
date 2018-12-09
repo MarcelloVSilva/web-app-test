@@ -1,4 +1,4 @@
-export function setPaginaAtiva() {
+export function setAbaAtiva() {
     const paginaAtiva = window.location.pathname === '/' ? 'homeSection' : 'contactSection'
 
     const elemAtualAtivo = document.getElementsByClassName('paginaAtiva')[0]
