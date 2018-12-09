@@ -136,6 +136,7 @@ class Contact extends Component {
                                                 label={`${translate('email')} *`} />
                                             <TextField
                                                 multiline
+                                                rowsMax="4"
                                                 onChange={this.handleChange('descricao')}
                                                 value={contactForm.descricao || ''}
                                                 id='descricao'
