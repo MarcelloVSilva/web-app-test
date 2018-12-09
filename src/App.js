@@ -19,7 +19,7 @@ class App extends Component {
       options: { renderToStaticMarkup }
     });
   }
-  
+
   render() {
     return (
 
@@ -29,7 +29,9 @@ class App extends Component {
             <div className="App">
               <div className='App-header'>
                 <div id='navigation'>
-                  <img src={LogoReact} className='App-logo' ></img>
+                  <Link to='/'>
+                    <img alt='Logo React' src={LogoReact} className='App-logo' ></img>
+                  </Link>
                   <Link to='/'>
                     <div id='homeSection'>{translate.translate('home')}</div>
                   </Link>

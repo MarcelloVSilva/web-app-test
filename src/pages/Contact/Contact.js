@@ -80,10 +80,10 @@ class Contact extends Component {
                 campo: '',
                 temErro: ''
             }
-            camposObrigatorios.some((campoObrigatorio) => {
+            camposObrigatorios.map((campoObrigatorio) => {
                 const valorDoCampo = contactForm[campoObrigatorio.campo]
                 if (campoObrigatorio.campo === 'nome') {
-                    if (!valorDoCampo || !(/[A-Za-z]/).test(valorDoCampo) || valorDoCampo === '') {
+                    if (!valorDoCampo || !(/[A-Za-z]/).test(valorDoCampo) || (/[0-9]/).test(valorDoCampo) || valorDoCampo === '') {
                         campoObrigatorio.temErro = true
                         errosCampos.push(erro)
                     } else {
@@ -92,7 +92,7 @@ class Contact extends Component {
                         errosCampos.push(erro)
                     }
                 } else if (campoObrigatorio.campo === 'email') {
-                    if (!valorDoCampo || (/[@]^/).test(valorDoCampo) || valorDoCampo === '') {
+                    if (!valorDoCampo || !(/@/).test(valorDoCampo) || valorDoCampo === '') {
                         campoObrigatorio.temErro = true
                         errosCampos.push(erro)
                     } else {
@@ -101,6 +101,7 @@ class Contact extends Component {
                         errosCampos.push(erro)
                     }
                 } else contErros--
+                return contErros
             })
             contErros === 0 ? resolve() : reject(this.setState({ camposObrigatorios }))
         })
@@ -135,20 +136,19 @@ class Contact extends Component {
                                                 label={`${translate('email')} *`} />
                                             <TextField
                                                 multiline
-                                                rows={4}
                                                 onChange={this.handleChange('descricao')}
                                                 value={contactForm.descricao || ''}
                                                 id='descricao'
                                                 label={translate('descricao')} />
                                         </div>
-                                        <Button onClick={this.salvar}>{translate('enviar')}</Button>
+                                        <Button id='salvarContatoBtn' onClick={this.salvar}>{translate('enviar')}</Button>
                                     </div>
                                 </div>
 
                                 <div onClick={this.rotate} className="card-contents card-back">
                                     <div className="card-depth">
                                         {translate('confirmacao')}
-                                        <i class="far fa-check-circle"></i>
+                                        <i className="far fa-check-circle"></i>
                                     </div>
                                 </div>
                             </div>

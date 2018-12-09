@@ -23,7 +23,7 @@
     width: 95%;
 }
 .card {
-    background-color: #97afb9;
+    background-color: #ffffff;
     display: -webkit-inline-box;
     width: calc(40vmin + 25%);
     height: calc(40vmin + 100px);
@@ -79,4 +79,8 @@
     align-items: center;
     flex-direction: column;
 
+}
+
+#salvarContatoBtn {
+    margin-top: 35px;
 }
