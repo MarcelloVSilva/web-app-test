@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link} from 'react-router-dom';
 import './App.css';
 import Routes from './Routes';
-import { withLocalize, Translate } from 'react-localize-redux';
+import { Translate, withLocalize } from 'react-localize-redux';
+
+import bdbr from './res/bandeiras/bd-br.png'
+import bdusa from './res/bandeiras/bd-usa.png'
 
 class App extends Component {
   constructor(props) {
@@ -18,19 +21,45 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <main>
-          <Switch>
-            {Routes().map(function (r, index) {
-              return <Route
-                key={index}
-                path={r.path}
-                exact={r.exact}
-                component={r.component} />
-            })}
-          </Switch>
-        </main>
-      </div>
+
+      <Translate>
+        {(translate) => {
+          return (
+            <div className="App">
+              <div className='App-header'>
+                <i id='globo' className="fas fa-globe-americas"></i>
+                <div id='languagePick'>
+                  <div onClick={() => translate.setActiveLanguage('pt')}>
+                    <img alt='flag' className="bandeiras bandeiraBrasil" src={bdbr} />
+                  </div>
+                  <div onClick={() => translate.setActiveLanguage('en')}>
+                    <img alt='flag' className="bandeiras bandeiraUSA" src={bdusa} />
+                  </div>
+                </div>
+                <div id='logo'>LOGO</div>
+                <div id='navigation'>
+                  <Link to='/contact'>
+                    <div>Contact</div>
+                  </Link>
+                </div>
+              </div>
+              <main>
+                <Switch>
+                  {Routes().map(function (r, index) {
+                    return <Route
+                      key={index}
+                      path={r.path}
+                      exact={r.exact}
+                      component={r.component} />
+                  })}
+                </Switch>
+              </main>
+            </div>
+          )
+        }
+        }
+      </Translate>
+
     );
   }
 }

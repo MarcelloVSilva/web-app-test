@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,3 +30,68 @@
     transform: rotate(360deg);
   }
 }
+a {
+  all: unset
+}
+#globo {
+  order: 0;
+  font-size: 1.7em;
+  position: absolute !important;
+  align-self: flex-start;
+  opacity: 1;
+  margin: 0;
+  transition: all 2s;
+}
+
+#languagePick {
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  height: 190px;
+  transition-duration: 0.5s;
+  position: absolute;
+  align-self: flex-start;
+  margin-top: 5vmin;
+}
+
+#languagePick div {
+  transition: 0.5s;
+  margin: 10px;
+}
+
+#languagePick > div:hover {
+  cursor: pointer;
+  color: slategray;
+}
+
+.fa-globe-americas:hover + #languagePick {
+  opacity: 1;
+}
+
+#languagePick:hover {
+  opacity: 1;
+}
+
+.bandeiras {
+  transition: all 0.2s;
+  margin: 0 2vmin 0 2vmin;
+}
+
+.bandeiraEspanha, .bandeiraUSA, .bandeiraItalia {
+  width: 58px;
+}
+
+.bandeiraEspanha:hover, .bandeiraUSA:hover, .bandeiraItalia:hover {
+  width: 64px;
+}
+
+.bandeiraBrasil{
+  width: 54px;
+} 
+
+.bandeiraBrasil:hover {
+  width: 58px;
+}
+
