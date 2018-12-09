@@ -39,6 +39,10 @@
     }
 }
 
+main {
+    height: -webkit-fill-available;
+}
+
 .paginaAtiva { 
   border-bottom: 1px solid;
 }

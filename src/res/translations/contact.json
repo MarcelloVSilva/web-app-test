@@ -1,5 +1,8 @@
 {
     "nome": ["Nome", "Name"],
     "email": ["E-mail", "E-mail"],
-    "descricao": ["Descrição", "Description"]
+    "descricao": ["Descrição", "Description"],
+    "enviar": ["Enviar", "Send"],
+    "erroNome": ["Não pode conter números nem estar vazio", "No numbers and no empty"],
+    "erroEmail": ["Email inválido ou está vazio", "Invalid email or empty field"]
 }
