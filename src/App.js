@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Routes from './Routes';
+import { withLocalize, Translate } from 'react-localize-redux';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    props.initialize({
+      languages: [
+        { name: 'Português', code: 'pt' },
+        { name: 'Inglês', code: 'en' }
+      ],
+      options: { renderToStaticMarkup }
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -23,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withLocalize(App);

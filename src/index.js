@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { Provider } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore, combineReducers } from 'redux';
+import { LocalizeProvider, localizeReducer } from 'react-localize-redux';
+
+const store = createStore(combineReducers({ localize: localizeReducer }));
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>, document.getElementById('root'));
+    <LocalizeProvider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </LocalizeProvider>, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change
