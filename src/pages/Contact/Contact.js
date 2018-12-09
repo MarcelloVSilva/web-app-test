@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
+import { withLocalize, Translate } from 'react-localize-redux';
+import ContactTranslations from './translations/translations.json'
 
 class Contact extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        props.addTranslation(ContactTranslations)
         this.state = {
             contactForm: {}
         }
@@ -20,28 +23,36 @@ class Contact extends Component {
     render() {
         const { contactForm } = this.state
         return (
-            <div id='contactForm'>
-                <TextField
-                    autoFocus={true}
-                    onChange={this.handleChange('nome')}
-                    value={contactForm.nome || ''}
-                    id='nome'
-                    label='Nome *' />
-                <TextField
-                    onChange={this.handleChange('email')}
-                    value={contactForm.email || ''}
-                    id='email'
-                    label='Email *' />
-                <TextField
-                    multiline
-                    rows={4}
-                    onChange={this.handleChange('descricao')}
-                    value={contactForm.descricao || ''}
-                    id='descricao'
-                    label='Descrição' />
-            </div>
+            <Translate>
+                {({translate} ) => {
+                    debugger
+                    return (
+                        <div id='contactForm'>
+                            <TextField
+                                autoFocus={true}
+                                onChange={this.handleChange('nome')}
+                                value={contactForm.nome || ''}
+                                id='nome'
+                                label={`${translate('nome')} *`} />
+                            <TextField
+                                onChange={this.handleChange('email')}
+                                value={contactForm.email || ''}
+                                id='email'
+                                label={`${translate('email')} *`} />
+                            <TextField
+                                multiline
+                                rows={4}
+                                onChange={this.handleChange('descricao')}
+                                value={contactForm.descricao || ''}
+                                id='descricao'
+                                label={translate('descricao')} />
+                        </div>
+
+                    )
+                }}
+            </Translate>
         )
     }
 }
 
-export default Contact
+export default withLocalize(Contact)

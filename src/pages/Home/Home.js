@@ -12,19 +12,19 @@ class Home extends Component {
     render() {
         return (
             <Translate>
-                {(translate) => {
+                {({translate}) => {
                     return (
                         <div id='home'>
                             <div id='header'>
-                                <div id='logo' onClick={()=>translate.setActiveLanguage('en')}>LOGO</div>
+                                <div id='logo'>LOGO</div>
                                 <div id='navigation'>
                                     <Link to='/contact'>
                                         <div>Contact</div>
                                     </Link>
                                 </div>
                             </div>
-                            <div id='title'>{translate.translate('title')}</div>
-                            <div id='subtitle'>{translate.translate('subtitle')}</div>
+                            <div id='title'>{translate('title')}</div>
+                            <div id='subtitle'>{translate('subtitle')}</div>
                         </div>
                     )
                 }
