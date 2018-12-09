@@ -5,7 +5,7 @@ import './App.css';
 import Routes from './Routes';
 import { Translate, withLocalize } from 'react-localize-redux';
 import GlobalTranslations from './res/translations/global.json'
-import LogoReact from './res/logo/logoReact.svg'
+import LogoReact from './res/imagens/logoReact.svg'
 
 class App extends Component {
   constructor(props) {
