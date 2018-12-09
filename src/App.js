@@ -4,13 +4,14 @@ import { Switch, Route, Link} from 'react-router-dom';
 import './App.css';
 import Routes from './Routes';
 import { Translate, withLocalize } from 'react-localize-redux';
-
+import GlobalTranslations from './res/translations/global.json'
 import bdbr from './res/bandeiras/bd-br.png'
 import bdusa from './res/bandeiras/bd-usa.png'
 
 class App extends Component {
   constructor(props) {
     super(props)
+    props.addTranslation(GlobalTranslations)
     props.initialize({
       languages: [
         { name: 'Português', code: 'pt' },
@@ -39,7 +40,7 @@ class App extends Component {
                 <div id='logo'>LOGO</div>
                 <div id='navigation'>
                   <Link to='/contact'>
-                    <div>Contact</div>
+                    <div>{translate.translate('contact')}</div>
                   </Link>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withLocalize, Translate } from 'react-localize-redux';
-import HomeTranslations from './translations/translationsHome.json'
+import HomeTranslations from '../../res/translations/home.json'
 class Home extends Component {
     constructor(props) {
         super(props)

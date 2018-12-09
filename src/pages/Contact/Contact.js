@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
 import { withLocalize, Translate } from 'react-localize-redux';
-import ContactTranslations from './translations/translationsContact.json'
+import ContactTranslations from '../../res/translations/contact.json'
 
 class Contact extends Component {
     constructor(props) {
